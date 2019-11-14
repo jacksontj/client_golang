@@ -65,6 +65,14 @@ type Desc struct {
 	err error
 }
 
+func (d *Desc) GetName() string {
+	return d.fqName
+}
+
+func (d *Desc) Labels() []*dto.LabelPair {
+	return d.constLabelPairs
+}
+
 // NewDesc allocates and initializes a new Desc. Errors are recorded in the Desc
 // and will be reported on registration time. variableLabels and constLabels can
 // be nil if no such labels should be set. fqName must not be empty.
